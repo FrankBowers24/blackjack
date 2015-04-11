@@ -35,9 +35,11 @@ class window.AppView extends Backbone.View
     (@$el.find 'stand-button').prop 'disabled', true
 
   playerWin: ->
+    ($ '.winImg').attr 'src', 'img/You-win.jpg'
     (@$el.find '.coverDiv').show()
 
   dealerWin: ->
+    ($ '.winImg').attr 'src', 'img/You-lose.jpg'
     (@$el.find '.coverDiv').show()
 
   bust: ->
