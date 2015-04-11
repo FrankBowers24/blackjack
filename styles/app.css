@@ -28,6 +28,15 @@
 
 }
 
+.bettingDiv {
+  margin : auto;
+  width : 500px;
+  top : 200px;
+  background-color : rgba(192, 192, 192, 1);
+  padding: 20px;
+  position : relative;
+}
+
 .winDiv {
   margin : auto;
   width : 200px;

@@ -8,6 +8,7 @@ class window.App extends Backbone.Model
     (@get 'playerHand').on 'bust', @playerBust.bind @
     (@get 'playerHand').on 'stand', @playerStand.bind @
     (@get 'dealerHand').on 'gameOver', @gameResult.bind @
+    @.set 'balance', 1000
 
   playerBust: ->
     @trigger('bust')
