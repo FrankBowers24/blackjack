@@ -56,3 +56,7 @@
 .playAgain img {
   width: 100px;
 }
+
+.covered {
+  content: url("../img/card-back.png");
+}

@@ -14,3 +14,7 @@ describe 'deck', ->
       assert.strictEqual deck.last(), hand.hit()
       assert.strictEqual deck.length, 517
 
+  # verify that player hand cards are all revealed
+  # verify that only first dealer card is revealed
+  # verify that dealer plays when player stands
+
