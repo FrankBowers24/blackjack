@@ -9,6 +9,4 @@ assert = chai.assert
 
 describe "initial state", ->
 
-  appView = new AppView(model: new App()).$el.appendTo 'body'
 
-  it "betting cover should be visible", ->
