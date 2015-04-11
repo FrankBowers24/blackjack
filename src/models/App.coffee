@@ -5,4 +5,23 @@ class window.App extends Backbone.Model
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
+    (@get 'playerHand').on 'bust', @playerBust.bind @
+    (@get 'playerHand').on 'stand', @playerStand.bind @
+    (@get 'dealerHand').on 'gameOver', @gameResult.bind @
 
+  playerBust: ->
+    @trigger('bust')
+
+  playerStand: ->
+    @trigger('stand')
+    (@get 'dealerHand').play()
+
+  gameResult: ->
+    playerScore = (@get 'playerHand').displayScore()
+    dealerScore = (@get 'dealerHand').displayScore()
+    if (dealerScore > 21)
+      @trigger 'playerWin'
+    else if (playerScore > dealerScore)
+      @trigger 'playerWin'
+    else
+      @trigger 'dealerWin'
