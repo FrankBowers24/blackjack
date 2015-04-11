@@ -28,5 +28,5 @@ class window.App extends Backbone.Model
 
   resetHands: ->
     (@get 'playerHand').resetHand()
-    (@get 'dealerHand').resetHand()
+    (@get 'dealerHand').resetDealer()
 

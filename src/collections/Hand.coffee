@@ -47,4 +47,8 @@ class window.Hand extends Backbone.Collection
     @hit()
     @hit()
 
+  resetDealer: ->
+    @reset []
+    @hit().flip()
+    @hit()
 
