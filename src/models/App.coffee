@@ -25,3 +25,8 @@ class window.App extends Backbone.Model
       @trigger 'playerWin'
     else
       @trigger 'dealerWin'
+
+  resetHands: ->
+    (@get 'playerHand').resetHand()
+    (@get 'dealerHand').resetHand()
+

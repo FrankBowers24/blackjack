@@ -6,8 +6,9 @@ describe "deck constructor", ->
     collection = new Deck()
     assert.strictEqual collection.length, 520
 
-  it "should have 10 instances of each card", ->
+  it "should have the correct sum of card values", ->
     collection = new Deck()
-    collection.sort( (a, b) ->
-      console.log a, b
-      )
+    total = collection.reduce (memo, card) ->
+      memo + card.get 'rank'
+    , 0
+    assert.strictEqual total, 3120

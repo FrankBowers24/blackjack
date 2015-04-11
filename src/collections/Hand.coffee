@@ -36,11 +36,15 @@ class window.Hand extends Backbone.Collection
 
 
   autoDraw: ->
-    console.log 'AutoDraw'
     if @displayScore() < 17
       @add @deck.pop()
       setTimeout (@autoDraw.bind @), 1000
     else
       @trigger 'gameOver'
+
+  resetHand: ->
+    @reset []
+    @hit()
+    @hit()
 
 

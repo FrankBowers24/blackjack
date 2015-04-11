@@ -1,5 +1,12 @@
 class window.AppView extends Backbone.View
   template: _.template '
+    <div class="coverDiv">
+      <div class="winDiv">
+        <img class="winImg" src="img/You-win.jpg"/>
+        <button class="playAgain"><img src="img/play-again.jpeg"></button>
+      </div>
+    </div>
+
     <button class="hit-button">Hit</button> <button class="stand-button">Stand</button>
     <div class="player-hand-container"></div>
     <div class="dealer-hand-container"></div>
@@ -8,6 +15,7 @@ class window.AppView extends Backbone.View
   events:
     'click .hit-button': -> @model.get('playerHand').hit()
     'click .stand-button': -> @model.get('playerHand').stand()
+    'click .playAgain': -> @reset()
 
   initialize: ->
     @model.on 'bust', @bust.bind @
@@ -23,14 +31,21 @@ class window.AppView extends Backbone.View
     @$('.dealer-hand-container').html new HandView(collection: @model.get 'dealerHand').el
 
   disableBtns: ->
-    (@$el.find 'button').prop 'disabled', true
+    (@$el.find 'hit-button').prop 'disabled', true
+    (@$el.find 'stand-button').prop 'disabled', true
 
   playerWin: ->
-    console.log 'playerWin'
+    (@$el.find '.coverDiv').show()
 
   dealerWin: ->
-    console.log 'dealerWin'
+    (@$el.find '.coverDiv').show()
 
   bust: ->
     @disableBtns()
     @dealerWin()
+
+  reset: ->
+    (@$el.find 'button').prop 'disabled', false
+    (@$el.find '.coverDiv').hide()
+    @model.resetHands()
+
